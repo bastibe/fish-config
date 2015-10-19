@@ -1,4 +1,5 @@
-set PATH ~/miniconda3/bin $PATH
+set MINICONDAPATH ~/.miniconda3
+set PATH $MINICONDAPATH/bin $PATH
 source ~/.config/fish/conda.fish
 
 alias emacs /usr/local/bin/emacs

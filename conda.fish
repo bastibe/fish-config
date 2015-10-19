@@ -11,7 +11,7 @@ end
 function condactivate -d 'Activate a conda environment' -a cenv
   # condabin will be the path to the bin directory
   # in the specified conda environment
-  set condabin $HOME/miniconda3/envs/$cenv/bin
+  set condabin $MINICONDAPATH/envs/$cenv/bin
 
   # check whether the condabin directory actually exists and
   # exit the function with an error status if it does not
@@ -58,7 +58,7 @@ function condactivate-git-maybe -d 'condactivate/deactivate the current git repo
   # get the current git repo or empty string
   set git_repo (git rev-parse --show-toplevel ^/dev/null; or echo '')
   # activate or deactivate when entering or leaving environment
-  if test -n $git_repo -a -d $HOME/miniconda3/envs/(basename $git_repo)/
+  if test -n $git_repo -a -d $MINICONDAPATH/envs/(basename $git_repo)/
     condactivate (basename $git_repo)
   else if set -q __CONDA_ENV_ACTIVE
     deactivate
